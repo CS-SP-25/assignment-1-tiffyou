@@ -15,5 +15,6 @@ public class NoTax implements SalesTaxBehavior {
  *create a new class that implements the changing behviour interface
  *(the sales tax behavior) and override the interface method compute
  *to reflect no tax
+ */
 
 
