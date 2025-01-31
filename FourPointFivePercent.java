@@ -1,4 +1,8 @@
-package PACKAGE_NAME;
+public class FourPointFivePercent implements SalesTaxBehavior {
 
-public class FourPointFivePercent {
+
+    @Override
+    public double compute(double value) {
+        return value * 0.045;
+    }
 }
