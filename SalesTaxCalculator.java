@@ -26,44 +26,25 @@ public class SalesTaxCalculator {
         double saleAmt = 0;
         double tax = -1;
         double setTax = -1;
-        SalesTaxBehavior setTaxBehavior = null;
-
         if (args.length > 3) {
             System.out.println("Invalid input");
             return;
         }
-//    check how many arguments(aka check if i guve a new percentage to set)
-        else if (args.length ==2){
-            name = args[0];
-            saleAmt = Integer.parseInt(args[1]);
+        name = args[0];
+        saleAmt = Integer.parseInt(args[1]);
 
-            if (name.equals("Indiana")){
-                State IN = new Indiana();
-                tax = new SevenPercent().compute(saleAmt);
-            }else if (name.equals("Alaska")){
-                State AL = new Alaska();
-                tax = new NoTax().compute(saleAmt);
-            } else if (name.equals("Hawaii")){
-                State HI = new Hawaii();
-                tax = new FourPointFivePercent().compute(saleAmt);
-
-            }
-
-//check if i give a new percnetage tax value and set new tax behavior
-        } else if (args.length == 3){
-            name = args[0];
-            saleAmt = Integer.parseInt(args[1]);
-            setTax = Double.parseDouble(args[2]);
-            if (setTax == 0){
-                setTaxBehavior = new NoTax();
-            } else if (setTax == 4.5){
-                setTaxBehavior = new FourPointFivePercent();
-            } else if (setTax == 7){
-                setTaxBehavior= new SevenPercent();
-            }
-            tax = setTaxBehavior.compute(saleAmt);
+        if (name.equals("Indiana")){
+            State IN = new Indiana();
+            tax = new SevenPercent().compute(saleAmt);
+        }else if (name.equals("Alaska")){
+            State AL = new Alaska();
+            tax = new NoTax().compute(saleAmt);
+        } else if (name.equals("Hawaii")){
+            State HI = new Hawaii();
+            tax = new FourPointFivePercent().compute(saleAmt);
 
         }
+
 
         System.out.println(String.format("The sales tax on $%.2f in %s is $%.2f.",
                 saleAmt, name, tax));
